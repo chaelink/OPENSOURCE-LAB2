@@ -1,0 +1,17 @@
+#!/bin/sh
+
+make_file_folder()
+{
+    local name=$1
+
+echo `mkdir $name`
+
+    for i in 0 1 2 3 4 
+    do  
+        echo `touch $name/file${i}.txt`
+        echo `mkdir $name/file${i}`
+        echo `ln -s $name/file${i}.txt $name/file${i}/file${i}.txt`
+    done
+}
+
+make_file_folder $1
